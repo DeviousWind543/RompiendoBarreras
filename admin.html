@@ -2,57 +2,128 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin – Blog Inclusivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Panel de administración - Blog Inclusivo">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Admin Panel | Blog Inclusivo</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-  <header class="header">
+<body class="admin-body">
+  <header class="header admin-header">
     <div class="logo">
-      <span class="logo-icon">✍️</span>
-      <span class="logo-text">Panel de administración</span>
+      <img src="Logo.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/44x44'">
+      <span class="logo-text">Admin <span class="logo-highlight">Panel</span></span>
     </div>
     <nav>
-      <a href="index.html">Ver sitio</a>
-      <button onclick="logout()" class="btn-logout">Cerrar sesión</button>
+      <a href="index.html">
+        <i class="fas fa-globe"></i>
+        <span>Ver sitio</span>
+      </a>
+      <button onclick="logout()" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar sesión</span>
+      </button>
     </nav>
   </header>
 
   <main>
-    <div class="container">
-      <!-- Formulario de creación/edición -->
-      <div class="form-card">
-        <h2 id="formTitle">Crear nueva publicación</h2>
-        <input type="hidden" id="editId" value="">
-        <div class="form-group">
-          <input type="text" id="title" placeholder="Título de la campaña" required>
+    <div class="container admin-container">
+      <div class="admin-hero">
+        <div class="admin-hero-content">
+          <div class="admin-hero-badge">
+            <i class="fas fa-crown"></i> Panel de Control
+          </div>
+          <h1 class="admin-hero-title">Gestiona tus <span class="highlight">Publicaciones</span></h1>
+          <p class="admin-hero-subtitle">Crea, edita o elimina las campañas sobre derechos y discapacidad.</p>
         </div>
-        <div class="form-group">
-          <textarea id="content" rows="5" placeholder="Describe la campaña, objetivos o logros..."></textarea>
-        </div>
-        <div class="form-group">
-          <label for="image">Imagen (opcional)</label>
-          <input type="file" id="image" accept="image/*">
-          <div id="imagePreview" class="image-preview"></div>
-        </div>
-        <div class="form-actions">
-          <button onclick="savePost()" class="btn-primary" id="saveBtn">Publicar</button>
-          <button onclick="resetForm()" class="btn-secondary" id="cancelBtn" style="display: none;">Cancelar edición</button>
-        </div>
-        <div id="formMessage" class="info-message"></div>
       </div>
 
-      <!-- Listado de posts existentes -->
-      <h2 class="section-title">Publicaciones existentes</h2>
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2 id="formTitle"><i class="fas fa-pen-fancy"></i> Crear nueva publicación</h2>
+          <div class="form-card-divider"></div>
+        </div>
+        <input type="hidden" id="editId">
+        
+        <div class="form-group">
+          <label for="title"><i class="fas fa-heading"></i> Título de la campaña</label>
+          <input type="text" id="title" placeholder="Ej: Jornada de concientización 2025" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="content"><i class="fas fa-align-left"></i> Contenido</label>
+          <textarea id="content" rows="8" placeholder="Describe la campaña, objetivos, logros...&#10;&#10;Puedes usar saltos de línea para crear párrafos."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="image"><i class="fas fa-image"></i> Imagen destacada (opcional)</label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="image" accept="image/*">
+            <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i> Seleccionar imagen</div>
+          </div>
+          <div id="imagePreview" class="image-preview"></div>
+        </div>
+        
+        <div class="form-actions">
+          <button onclick="savePost()" class="btn-primary" id="saveBtn">
+            <i class="fas fa-save"></i> Publicar
+          </button>
+          <button onclick="resetForm()" class="btn-secondary" id="cancelBtn">
+            <i class="fas fa-undo-alt"></i> Cancelar
+          </button>
+        </div>
+        <div id="formMessage" class="info-message" style="display: none;"></div>
+      </div>
+
+      <div class="listings-header">
+        <h2 class="section-title"><i class="fas fa-list-ul"></i> Publicaciones existentes</h2>
+        <div class="section-divider"></div>
+      </div>
       <div id="adminPostsList" class="admin-posts-list"></div>
-      <div id="adminLoading" class="loading-spinner" style="display: none;">Cargando...</div>
+      <div id="adminLoading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Cargando publicaciones...</p>
+      </div>
     </div>
   </main>
+
+  <!-- ===== FOOTER ADMIN ELEGANTE ===== -->
+  <footer class="footer">
+    <div class="footer-main footer-admin-simple">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="Logo.png" alt="Derechos para Todos" class="footer-logo-img" onerror="this.src='https://via.placeholder.com/45x45'">
+            <span>Derechos para <span class="logo-highlight">Todos</span></span>
+          </div>
+          <p class="footer-description">Panel de administración del blog inclusivo.</p>
+        </div>
+        <div class="footer-col">
+          <h4><i class="fas fa-link"></i> Enlaces</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Ver sitio web</a></li>
+            <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Panel de control</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4><i class="fas fa-envelope"></i> Soporte</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> soporte@bloginclusivo.org</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Derechos para Todos · Blog Inclusivo</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="supabase.js"></script>
   <script src="auth.js"></script>
   <script src="admin.js"></script>
+  <script src="notifications.js"></script>
 </body>
 </html>

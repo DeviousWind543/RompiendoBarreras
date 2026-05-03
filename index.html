@@ -2,38 +2,187 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Blog Inclusivo – Derechos para todos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Blog inclusivo sobre derechos y campañas para personas con discapacidad">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Blog Inclusivo | Derechos para todos</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <header class="header">
     <div class="logo">
-      <!-- Reemplazo del emoji por la imagen real -->
-      <img src="Logo.png" alt="Logo Derechos para todos" class="logo-img">
-      <span class="logo-text">DERECHOS PARA TODOS · INCLUSIÓN</span>
+      <img src="Logo.png" alt="Derechos para Todos" class="logo-img" onerror="this.src='https://via.placeholder.com/44x44'">
+      <span class="logo-text">Derechos para <span class="logo-highlight">Todos</span></span>
     </div>
     <nav>
-      <a href="index.html" class="active">Inicio</a>
-      <a href="admin.html">Admin</a>
+      <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="admin.html">
+        <i class="fas fa-shield-alt"></i>
+        <span>Admin</span>
+      </a>
     </nav>
   </header>
 
   <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Blog Oficial</div>
+        <h1 class="hero-title">Acciones por los<br>Derechos de las Personas<br>con Discapacidad</h1>
+        <p class="hero-subtitle">Un espacio dedicado a la inclusión, la accesibilidad y la defensa de los derechos fundamentales para todas las personas.</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" id="postCount">0</span>
+            <span class="stat-label">Campañas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">+5K</span>
+            <span class="stat-label">Lectores</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">2025</span>
+            <span class="stat-label">Compromiso</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decoration">
+        <div class="hero-circle"></div>
+        <div class="hero-circle-2"></div>
+      </div>
+    </section>
+
     <div class="container">
-      <h1 class="page-title">Acciones por los Derechos de las Personas con Discapacidad</h1>
+      <div class="section-header">
+        <div class="section-tag">Últimas Publicaciones</div>
+        <h2 class="section-title">Campañas y <span class="highlight">Noticias</span></h2>
+        <div class="section-divider"></div>
+      </div>
       <div id="feed" class="posts-grid"></div>
-      <div id="loading" class="loading-spinner" style="display: none;">Cargando...</div>
+      <div id="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Cargando campañas...</p>
+      </div>
     </div>
   </main>
 
+  <!-- ===== FOOTER ELEGANTE MEJORADO ===== -->
   <footer class="footer">
-    <p>Blog Inclusivo – Promoviendo la accesibilidad y los derechos de las personas con discapacidad</p>
+    <!-- Newsletter Section -->
+    <div class="footer-newsletter">
+      <div class="newsletter-container">
+        <div class="newsletter-icon">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <h3 class="newsletter-title">Suscríbete a nuestro <span class="highlight">Newsletter</span></h3>
+        <p class="newsletter-text">Recibe las últimas campañas y noticias sobre inclusión y derechos.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <div class="form-group-news">
+            <input type="email" placeholder="Tu correo electrónico" required>
+            <button type="submit">Suscribirse <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </form>
+        <p class="newsletter-note">No spam, solo contenido valioso.</p>
+      </div>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+      <div class="footer-grid">
+        <!-- Columna 1 - Sobre nosotros -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="Logo.png" alt="Derechos para Todos" class="footer-logo-img" onerror="this.src='https://via.placeholder.com/45x45'">
+            <span>Derechos para <span class="logo-highlight">Todos</span></span>
+          </div>
+          <p class="footer-description">Promoviendo la accesibilidad y los derechos de las personas con discapacidad a través de información y campañas de concientización.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Columna 2 - Enlaces rápidos -->
+        <div class="footer-col">
+          <h4><i class="fas fa-link"></i> Enlaces rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+            <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Administración</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Política de privacidad</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Términos de uso</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Accesibilidad</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3 - Contacto -->
+        <div class="footer-col">
+          <h4><i class="fas fa-address-card"></i> Contacto</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> DeviousWind@gmail.com</li>
+            <li><i class="fas fa-phone-alt"></i> +593 958 867 509</li>
+            <li><i class="fas fa-map-marker-alt"></i> Ecuador, Manabi</li>
+          </ul>
+        </div>
+
+        <!-- Columna 4 - Horario -->
+        <div class="footer-col">
+          <h4><i class="fas fa-clock"></i> Horario de atención</h4>
+          <ul class="footer-hours">
+            <li><span>Lunes a Viernes:</span> 9:00 - 18:00</li>
+            <li><span>Sábados:</span> 10:00 - 14:00</li>
+            <li><span>Domingos:</span> Cerrado</li>
+          </ul>
+          <div class="footer-badge">
+            <i class="fas fa-hand-holding-heart"></i> Inclusión para todos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="bottom-content">
+        <p>&copy; 2025 Derechos para Todos · Blog Inclusivo. Todos los derechos reservados.</p>
+        <div class="bottom-links">
+          <a href="#">Mapa del sitio</a>
+          <span class="separator">|</span>
+          <a href="#">Accesibilidad</a>
+          <span class="separator">|</span>
+          <a href="#">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-credits">
+        Hecho con <i class="fas fa-heart" style="color: #c6a43f;"></i> para la inclusión Desarrollado por DeviousWind
+      </div>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="supabase.js"></script>
   <script src="feed.js"></script>
+  <script src="notifications.js"></script>
+
+<script>
+  // Newsletter con notificación elegante
+  document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = e.target.querySelector('input');
+    const email = input.value.trim();
+    
+    if (email) {
+      // Mostrar notificación elegante en lugar de alert
+      showToast(`✨ ¡Gracias por suscribirte! Te enviaremos novedades a ${email}`, 'success', 5000);
+      input.value = '';
+    } else {
+      showToast('⚠️ Por favor, ingresa un correo válido', 'warning', 3000);
+    }
+  });
+</script>
 </body>
 </html>

@@ -2,40 +2,96 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceso Admin – Blog Inclusivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Acceso al panel de administración - Blog Inclusivo">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Acceso Admin | Blog Inclusivo</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Fuentes premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="login-body">
+  <!-- Decoración de fondo -->
+  <div class="login-bg-decoration">
+    <div class="login-bg-circle"></div>
+    <div class="login-bg-circle-2"></div>
+    <div class="login-bg-circle-3"></div>
+  </div>
+
   <div class="login-container">
     <div class="login-card">
+      <!-- Logo -->
+      <div class="login-logo">
+        <img src="Logo.png" alt="Derechos para Todos" class="login-logo-img" onerror="this.src='https://via.placeholder.com/60x60'">
+      </div>
+
       <div class="login-header">
-        <span class="logo-icon">🔐</span>
-        <h2>Panel de administración</h2>
-        <p>Ingresa con tu cuenta de Supabase</p>
+        <div class="login-badge">
+          <i class="fas fa-shield-alt"></i> Panel de Control
+        </div>
+        <h2 class="login-title">Bienvenido de <span class="highlight">vuelta</span></h2>
+        <p class="login-subtitle">Ingresa con tus credenciales de administrador</p>
       </div>
-      <div class="form-group">
-        <input type="email" id="email" placeholder="Correo electrónico" autocomplete="email">
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="correo@ejemplo.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password" required>
+          </div>
+        </div>
+
+        <div class="login-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe">
+            <span class="checkmark"></span>
+            Recordarme
+          </label>
+          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn-login">
+          <i class="fas fa-arrow-right"></i>
+          <span>Acceder al panel</span>
+        </button>
+
+        <div id="loginError" class="error-message" style="display: none;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span></span>
+        </div>
+      </form>
+
+      <div class="login-footer">
+        <p>¿Necesitas ayuda? <a href="#">Contacta con soporte</a></p>
       </div>
-      <div class="form-group">
-        <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password">
-      </div>
-      <button onclick="login()" class="btn-primary btn-block">Entrar al panel</button>
-      <div id="loginError" class="error-message" style="display: none;"></div>
     </div>
   </div>
 
+  <!-- Script para manejar el formulario -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await login();
+    });
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="supabase.js"></script>
+  <script src="notifications.js"></script>
   <script src="auth.js"></script>
   <script>
-    // Redirigir si ya hay sesión activa (para evitar mostrar el login innecesariamente)
     (async function() {
       const { data: { session } } = await supabaseClient.auth.getSession();
-      if (session) {
-        window.location.href = "admin.html";
-      }
+      if (session) window.location.href = "admin.html";
     })();
   </script>
 </body>
