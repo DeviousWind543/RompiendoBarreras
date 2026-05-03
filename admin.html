@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Blog Inclusivo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">✍️</span>
+      <span class="logo-text">Panel de administración</span>
+    </div>
+    <nav>
+      <a href="index.html">Ver sitio</a>
+      <button onclick="logout()" class="btn-logout">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Formulario de creación/edición -->
+      <div class="form-card">
+        <h2 id="formTitle">Crear nueva publicación</h2>
+        <input type="hidden" id="editId" value="">
+        <div class="form-group">
+          <input type="text" id="title" placeholder="Título de la campaña" required>
+        </div>
+        <div class="form-group">
+          <textarea id="content" rows="5" placeholder="Describe la campaña, objetivos o logros..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">Imagen (opcional)</label>
+          <input type="file" id="image" accept="image/*">
+          <div id="imagePreview" class="image-preview"></div>
+        </div>
+        <div class="form-actions">
+          <button onclick="savePost()" class="btn-primary" id="saveBtn">Publicar</button>
+          <button onclick="resetForm()" class="btn-secondary" id="cancelBtn" style="display: none;">Cancelar edición</button>
+        </div>
+        <div id="formMessage" class="info-message"></div>
+      </div>
+
+      <!-- Listado de posts existentes -->
+      <h2 class="section-title">Publicaciones existentes</h2>
+      <div id="adminPostsList" class="admin-posts-list"></div>
+      <div id="adminLoading" class="loading-spinner" style="display: none;">Cargando...</div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Admin – Blog Inclusivo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="logo-icon">🔐</span>
+        <h2>Panel de administración</h2>
+        <p>Ingresa con tu cuenta de Supabase</p>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Correo electrónico" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password">
+      </div>
+      <button onclick="login()" class="btn-primary btn-block">Entrar al panel</button>
+      <div id="loginError" class="error-message" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    // Redirigir si ya hay sesión activa (para evitar mostrar el login innecesariamente)
+    (async function() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        window.location.href = "admin.html";
+      }
+    })();
+  </script>
+</body>
+</html>

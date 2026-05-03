@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Blog Inclusivo – Derechos para todos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <!-- Reemplazo del emoji por la imagen real -->
+      <img src="Logo.png" alt="Logo Derechos para todos" class="logo-img">
+      <span class="logo-text">DERECHOS PARA TODOS · INCLUSIÓN</span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Inicio</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Acciones por los Derechos de las Personas con Discapacidad</h1>
+      <div id="feed" class="posts-grid"></div>
+      <div id="loading" class="loading-spinner" style="display: none;">Cargando...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Blog Inclusivo – Promoviendo la accesibilidad y los derechos de las personas con discapacidad</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+  <script src="feed.js"></script>
+</body>
+</html>
